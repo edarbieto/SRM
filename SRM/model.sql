@@ -62,7 +62,7 @@ BEGIN
     codigodocente VARCHAR(7),
     dia VARCHAR(10),
     horainicio INT,
-    horafinal INT,
+    numerohoras INT,
     aula VARCHAR(4),
     PRIMARY KEY(codigo)
   )
