@@ -88,14 +88,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SRM.exe" size="785856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SRM.exe" size="800704">
       <assemblyIdentity name="SRM" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KRBN2AqlL8W3YBEQXR/jTzsh3vs=</dsig:DigestValue>
+        <dsig:DigestValue>iORg6DTVMP+RytZ5IlFX968fk/g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

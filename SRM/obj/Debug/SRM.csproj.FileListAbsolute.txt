@@ -16,3 +16,4 @@ D:\Visual Studio Projects\SRM\SRM\obj\Debug\SRM.application
 D:\Visual Studio Projects\SRM\SRM\obj\Debug\SRM.exe
 D:\Visual Studio Projects\SRM\SRM\obj\Debug\SRM.pdb
 D:\Visual Studio Projects\SRM\SRM\obj\Debug\SRM.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\SRM\SRM\obj\Debug\SRM.Formularios.AgregarEditarDocente.resources

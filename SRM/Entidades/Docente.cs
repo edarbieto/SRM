@@ -14,10 +14,10 @@ namespace SRM.Entidades
         public string FechaNacimiento { get; set; }
         public string Descripcion { get; set; }
         public string Direccion { get; set; }
-        public string Facultad { get; set; }
+        public string Carrera { get; set; }
         public string Contrato { get; set; }
 
-        public Docente(string codigo, string nombre, string apellido, string dNI, string fechaNacimiento, string descripcion, string direccion, string facultad, string contrato)
+        public Docente(string codigo, string nombre, string apellido, string dNI, string fechaNacimiento, string descripcion, string direccion, string carrera, string contrato)
         {
             Codigo = codigo;
             Nombre = nombre;
@@ -26,7 +26,7 @@ namespace SRM.Entidades
             FechaNacimiento = fechaNacimiento;
             Descripcion = descripcion;
             Direccion = direccion;
-            Facultad = facultad;
+            Carrera = carrera;
             Contrato = contrato;
         }
     }

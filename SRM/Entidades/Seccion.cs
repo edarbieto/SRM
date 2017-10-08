@@ -13,13 +13,12 @@ namespace SRM.Entidades
         public string Periodo { get; set; }
         public Curso Curso { get; set; }
         public Docente Docente { get; set; }
-        public List<Alumno> Alumnos { get; set; }
         public string Dia { get; set; }
         public string HoraInicio { get; set; }
-        public string HoraFinal { get; set; }
+        public string NumeroHoras { get; set; }
         public string Aula { get; set; }
 
-        public Seccion(string codigo, string sede, string modalidad, string periodo, Curso curso, Docente docente, string dia, string horaInicio, string horaFinal, string aula)
+        public Seccion(string codigo, string sede, string modalidad, string periodo, Curso curso, Docente docente, string dia, string horaInicio, string numeroHoras, string aula)
         {
             Codigo = codigo;
             Sede = sede;
@@ -29,9 +28,8 @@ namespace SRM.Entidades
             Docente = docente;
             Dia = dia;
             HoraInicio = horaInicio;
-            HoraFinal = horaFinal;
+            NumeroHoras = numeroHoras;
             Aula = aula;
-            Alumnos = new List<Alumno>();
         }
     }
 }

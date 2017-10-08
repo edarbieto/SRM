@@ -106,6 +106,12 @@
     <Compile Include="Formularios\AgregarEditarAlumno.Designer.cs">
       <DependentUpon>AgregarEditarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\AgregarEditarDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarDocente.Designer.cs">
+      <DependentUpon>AgregarEditarDocente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\AgregarEditarAlumno.resx">
       <DependentUpon>AgregarEditarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarEditarDocente.resx">
+      <DependentUpon>AgregarEditarDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

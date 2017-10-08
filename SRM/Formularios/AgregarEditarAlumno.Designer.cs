@@ -110,7 +110,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(109, 254);
+            this.metroLabel7.Location = new System.Drawing.Point(109, 257);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(57, 19);
             this.metroLabel7.TabIndex = 6;
@@ -279,31 +279,34 @@
             this.mcCarrera.FormattingEnabled = true;
             this.mcCarrera.ItemHeight = 23;
             this.mcCarrera.Items.AddRange(new object[] {
-            "Hotelería y Administración",
-            "Turismo y Administración",
-            "Gastronomía y Gestión Culinaria",
+            "Administración y Agronegocios",
+            "Administración y Finanzas",
+            "Administración y Gerencia del Emprendimiento",
+            "Administración y Marketing",
+            "Administración y Negocios del Deporte",
+            "Administración y Negocios Internacionales",
+            "Administración y Recursos Humanos",
             "Arquitectura",
-            "Escuela de Música",
             "Artes Escénicas",
-            "Medicina",
-            "Nutrición y Dietética",
-            "Odontología",
-            "Terapia Física",
-            "Traducción e Interpretación Profesional",
-            "Psicología",
+            "Ciencias de la Computación",
             "Comunicación Audiovisual y Medios Interactivos",
             "Comunicación e Imagen Empresarial",
             "Comunicación y Marketing",
             "Comunicación y Periodismo",
             "Comunicación y Publicidad",
+            "Contabilidad y Administración",
             "Derecho",
             "Diseño Profesional de Interiores",
             "Diseño Profesional Gráfico",
             "Diseño y Gestión en Moda",
+            "Economía Gerencial",
             "Economía y Finanzas",
             "Economía y Negocios Internacionales",
-            "Economía Gerencial",
             "Educación y Gestión del Aprendizaje",
+            "Escuela de Música",
+            "Gastronomía y Gestión Culinaria",
+            "Hotelería y Administración",
+            "Ingeniería Ambiental",
             "Ingeniería Civil",
             "Ingeniería de Gestión Empresarial",
             "Ingeniería de Gestión Minera",
@@ -312,16 +315,13 @@
             "Ingeniería Electrónica",
             "Ingeniería Industrial",
             "Ingeniería Mecatrónica",
-            "Ciencias de la Computación",
-            "Ingeniería Ambiental",
-            "Administración y Agronegocios",
-            "Administración y Finanzas",
-            "Administración y Marketing",
-            "Administración y Negocios del Deporte",
-            "Administración y Negocios Internacionales",
-            "Administración y Recursos Humanos",
-            "Contabilidad y Administración",
-            "Administración y Gerencia del Emprendimiento"});
+            "Medicina",
+            "Nutrición y Dietética",
+            "Odontología",
+            "Psicología",
+            "Terapia Física",
+            "Traducción e Interpretación Profesional",
+            "Turismo y Administración"});
             this.mcCarrera.Location = new System.Drawing.Point(173, 253);
             this.mcCarrera.MaxDropDownItems = 4;
             this.mcCarrera.Name = "mcCarrera";
@@ -475,6 +475,9 @@
             // 
             this.mcSexo.FormattingEnabled = true;
             this.mcSexo.ItemHeight = 23;
+            this.mcSexo.Items.AddRange(new object[] {
+            "M",
+            "F"});
             this.mcSexo.Location = new System.Drawing.Point(173, 160);
             this.mcSexo.Name = "mcSexo";
             this.mcSexo.Size = new System.Drawing.Size(127, 29);
@@ -485,7 +488,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 528);
+            this.ClientSize = new System.Drawing.Size(397, 498);
             this.Controls.Add(this.mtAccion);
             this.Controls.Add(this.mtCreditosmatriculados);
             this.Controls.Add(this.mtCreditostotales);
