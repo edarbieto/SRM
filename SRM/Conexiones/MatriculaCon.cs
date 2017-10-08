@@ -21,9 +21,7 @@ namespace SRM.Conexiones
                 {
                     while (dr.Read())
                     {
-                        AlumnoCon tempAlumno = new AlumnoCon();
-                        SeccionCon tempSeccion = new SeccionCon();
-                        obj = new Matricula(dr.GetInt32(0), tempAlumno.ObtenerAlumno(dr.GetString(1)), tempSeccion.ObtenerSeccion(dr.GetString(2)), dr.GetString(3));
+                        obj = new Matricula(dr.GetInt32(0), dr.GetString(1), dr.GetString(2), dr.GetString(3));
                         break;
                     }
                 }
@@ -42,6 +40,60 @@ namespace SRM.Conexiones
                 }
             }
             return dt;
+        }
+        public void AgregarMatricula(Matricula matricula)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=dbSRM; Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = string.Format("INSERT INTO matricula(codigo, codigoalumno, codigoseccion, codigousuario) VALUES({0}, '{1}', '{2}', '{3}')", matricula.Codigo, matricula.CodigoAlumno, matricula.CodigoSeccion, matricula.CodigoUsuario);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void EditarMatricula(Matricula matricula)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=dbSRM; Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = string.Format("UPDATE matricula SET codigoalumno='{1}', codigoseccion='{2}', codigousuario='{3}' WHERE codigo={0}", matricula.Codigo, matricula.CodigoAlumno, matricula.CodigoSeccion, matricula.CodigoUsuario);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void EliminarMatricula(int codigo)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=dbSRM; Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = string.Format("DELETE FROM matricula WHERE codigo={0}", codigo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public int ObtenerCodigo()
+        {
+            int codigo = -1;
+            using (SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=dbSRM; Integrated Security=True"))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 * FROM matricula ORDER BY codigo DESC", con);
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        codigo = dr.GetInt32(0);
+                        break;
+                    }
+                }
+            }
+            return codigo + 1;
         }
     }
 }

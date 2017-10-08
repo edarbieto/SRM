@@ -7,16 +7,16 @@ namespace SRM.Entidades
 {
     public class Matricula
     {
-        public int codigo { get; set; }
-        public Alumno alumno { get; set; }
-        public Seccion seccion { get; set; }
+        public int Codigo { get; set; }
+        public string CodigoAlumno { get; set; }
+        public string CodigoSeccion { get; set; }
         public string CodigoUsuario { get; set; }
 
-        public Matricula(int codigo, Alumno alumno, Seccion seccion, string codigoUsuario)
+        public Matricula(int codigo, string codigoAlumno, string codigoSeccion, string codigoUsuario)
         {
-            this.codigo = codigo;
-            this.alumno = alumno;
-            this.seccion = seccion;
+            this.Codigo = codigo;
+            CodigoAlumno = codigoAlumno;
+            CodigoSeccion = codigoSeccion;
             CodigoUsuario = codigoUsuario;
         }
     }

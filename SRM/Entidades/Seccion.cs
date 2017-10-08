@@ -11,21 +11,21 @@ namespace SRM.Entidades
         public string Sede { get; set; }
         public string Modalidad { get; set; }
         public string Periodo { get; set; }
-        public Curso Curso { get; set; }
-        public Docente Docente { get; set; }
+        public string CodigoCurso { get; set; }
+        public string CodigoDocente { get; set; }
         public string Dia { get; set; }
         public string HoraInicio { get; set; }
         public string NumeroHoras { get; set; }
         public string Aula { get; set; }
 
-        public Seccion(string codigo, string sede, string modalidad, string periodo, Curso curso, Docente docente, string dia, string horaInicio, string numeroHoras, string aula)
+        public Seccion(string codigo, string sede, string modalidad, string periodo, string codigoCurso, string codigoDocente, string dia, string horaInicio, string numeroHoras, string aula)
         {
             Codigo = codigo;
             Sede = sede;
             Modalidad = modalidad;
             Periodo = periodo;
-            Curso = curso;
-            Docente = docente;
+            CodigoCurso = codigoCurso;
+            CodigoDocente = codigoDocente;
             Dia = dia;
             HoraInicio = horaInicio;
             NumeroHoras = numeroHoras;

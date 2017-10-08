@@ -96,6 +96,7 @@
     <Compile Include="Conexiones\DocenteCon.cs" />
     <Compile Include="Conexiones\MatriculaCon.cs" />
     <Compile Include="Conexiones\SeccionCon.cs" />
+    <Compile Include="Conexiones\UsuarioCon.cs" />
     <Compile Include="Entidades\Alumno.cs" />
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Docente.cs" />
@@ -106,11 +107,29 @@
     <Compile Include="Formularios\AgregarEditarAlumno.Designer.cs">
       <DependentUpon>AgregarEditarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\AgregarEditarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarCurso.Designer.cs">
+      <DependentUpon>AgregarEditarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\AgregarEditarDocente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\AgregarEditarDocente.Designer.cs">
       <DependentUpon>AgregarEditarDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarMatricula.Designer.cs">
+      <DependentUpon>AgregarEditarMatricula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarEditarSeccion.Designer.cs">
+      <DependentUpon>AgregarEditarSeccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inicio.cs">
       <SubType>Form</SubType>
@@ -131,8 +150,17 @@
     <EmbeddedResource Include="Formularios\AgregarEditarAlumno.resx">
       <DependentUpon>AgregarEditarAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarEditarCurso.resx">
+      <DependentUpon>AgregarEditarCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\AgregarEditarDocente.resx">
       <DependentUpon>AgregarEditarDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarEditarMatricula.resx">
+      <DependentUpon>AgregarEditarMatricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarEditarSeccion.resx">
+      <DependentUpon>AgregarEditarSeccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

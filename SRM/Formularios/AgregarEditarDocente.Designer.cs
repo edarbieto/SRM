@@ -427,6 +427,7 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AgregarEditarDocente";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;

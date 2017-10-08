@@ -15,9 +15,12 @@ namespace SRM.Formularios
 {
     public partial class Inicio : MetroForm
     {
-        public Inicio()
+        string codigoUsuario, nombreUsuario;
+        public Inicio(string codigoUsuario, string nombreUsuario)
         {
             InitializeComponent();
+            this.codigoUsuario = codigoUsuario;
+            this.nombreUsuario = nombreUsuario;
             Load += FormLoad;
             mtAlumnosAgregar.Click += mtAlumnosAgregarClick;
             mtAlumnosEliminar.Click += mtAlumnosEliminarClick;
@@ -27,6 +30,172 @@ namespace SRM.Formularios
             mtDocentesEliminar.Click += mtDocentesEliminarClick;
             mgDocentes.MouseDoubleClick += mgDocentesDoubleClick;
             mgDocentes.SelectionChanged += mgDocentesSelectionChanged;
+            mtCursosAgregar.Click += mtCursosAgregarClick;
+            mtCursosEliminar.Click += mtCursosEliminarClick;
+            mgCursos.MouseDoubleClick += mgCursosDoubleClick;
+            mgCursos.SelectionChanged += mgCursosSelectionChanged;
+            mtSeccionesAgregar.Click += mtSeccionesAgregarClick;
+            mtSeccionesEliminar.Click += mtSeccionesEliminarClick;
+            mgSecciones.MouseDoubleClick += mgSeccionesDoubleClick;
+            mgSecciones.SelectionChanged += mgSeccionesSelectionChanged;
+            mtMatriculasAgregar.Click += mtMatriculasAgregarClick;
+            mtMatriculasEliminar.Click += mtMatriculasEliminarClick;
+            mgMatriculas.MouseDoubleClick += mgMatriculasDoubleClick;
+            mgMatriculas.SelectionChanged += mgMatriculasSelectionChanged;
+        }
+
+        private void mgMatriculasSelectionChanged(object sender, EventArgs e)
+        {
+            if (mgMatriculas.SelectedRows.Count > 0)
+            {
+                string prevista = "";
+                prevista += "Codigo: " + mgMatriculas.SelectedRows[0].Cells[0].Value.ToString() + "\r\n";
+                prevista += "Codigo alumno: " + mgMatriculas.SelectedRows[0].Cells[1].Value.ToString() + "\r\n";
+                prevista += "Codigo seccion: " + mgMatriculas.SelectedRows[0].Cells[2].Value.ToString() + "\r\n";
+                prevista += "Codigo usuario: " + mgMatriculas.SelectedRows[0].Cells[3].Value.ToString();
+                mlMatriculasPrevista.Text = prevista;
+            }
+        }
+
+        private void mgMatriculasDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (mgMatriculas.SelectedRows.Count > 0)
+            {
+                string codigo = mgMatriculas.SelectedRows[0].Cells[0].Value.ToString();
+                MatriculaCon con = new MatriculaCon();
+                Matricula temp = con.ObtenerMatricula(codigo);
+                AgregarEditarMatricula obj = new AgregarEditarMatricula("editar", temp, codigoUsuario);
+                obj.ShowInTaskbar = false;
+                obj.ShowDialog();
+                ActualizarDataGridViews();
+            }
+        }
+
+        private void mtMatriculasEliminarClick(object sender, EventArgs e)
+        {
+            if (mgMatriculas.SelectedRows.Count > 0)
+            {
+                DialogResult resultado = MetroMessageBox.Show(this, "¿Esta seguro de eliminar esta matricula? Se eliminara toda informacion de ella", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (resultado == DialogResult.OK)
+                {
+                    string codigo = mgMatriculas.SelectedRows[0].Cells[0].Value.ToString();
+                    MatriculaCon con = new MatriculaCon();
+                    con.EliminarMatricula(int.Parse(codigo));
+                    MetroMessageBox.Show(this, "Matricula elimada correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDataGridViews();
+                }
+            }
+        }
+
+        private void mtMatriculasAgregarClick(object sender, EventArgs e)
+        {
+            AgregarEditarMatricula obj = new AgregarEditarMatricula("agregar", null, codigoUsuario);
+            obj.ShowInTaskbar = false;
+            obj.ShowDialog();
+            ActualizarDataGridViews();
+        }
+
+        private void mgSeccionesSelectionChanged(object sender, EventArgs e)
+        {
+            if (mgSecciones.SelectedRows.Count > 0)
+            {
+                string prevista = "";
+                prevista += "Codigo: " + mgSecciones.SelectedRows[0].Cells[0].Value.ToString() + "\r\n";
+                prevista += "Sede: " + mgSecciones.SelectedRows[0].Cells[1].Value.ToString() + "\r\n";
+                prevista += "Modalidad: " + mgSecciones.SelectedRows[0].Cells[2].Value.ToString() + "\r\n";
+                prevista += "Periodo: " + mgSecciones.SelectedRows[0].Cells[3].Value.ToString();
+                mlSeccionesPrevista.Text = prevista;
+            }
+        }
+
+        private void mgSeccionesDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (mgSecciones.SelectedRows.Count > 0)
+            {
+                string codigo = mgSecciones.SelectedRows[0].Cells[0].Value.ToString();
+                SeccionCon con = new SeccionCon();
+                Seccion temp = con.ObtenerSeccion(codigo);
+                AgregarEditarSeccion obj = new AgregarEditarSeccion("editar", temp);
+                obj.ShowInTaskbar = false;
+                obj.ShowDialog();
+                ActualizarDataGridViews();
+            }
+        }
+
+        private void mtSeccionesEliminarClick(object sender, EventArgs e)
+        {
+            if (mgSecciones.SelectedRows.Count > 0)
+            {
+                DialogResult resultado = MetroMessageBox.Show(this, "¿Esta seguro de eliminar esta seccion? Se eliminara toda informacion de ella", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (resultado == DialogResult.OK)
+                {
+                    string codigo = mgSecciones.SelectedRows[0].Cells[0].Value.ToString();
+                    SeccionCon con = new SeccionCon();
+                    con.EliminarSeccion(codigo);
+                    MetroMessageBox.Show(this, "Seccion elimada correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDataGridViews();
+                }
+            }
+        }
+
+        private void mtSeccionesAgregarClick(object sender, EventArgs e)
+        {
+            AgregarEditarSeccion obj = new AgregarEditarSeccion("agregar", null);
+            obj.ShowInTaskbar = false;
+            obj.ShowDialog();
+            ActualizarDataGridViews();
+        }
+
+        private void mgCursosSelectionChanged(object sender, EventArgs e)
+        {
+            if (mgCursos.SelectedRows.Count > 0)
+            {
+                string prevista = "";
+                prevista += "Codigo: " + mgCursos.SelectedRows[0].Cells[0].Value.ToString() + "\r\n";
+                prevista += "Nombre: " + mgCursos.SelectedRows[0].Cells[1].Value.ToString() + "\r\n";
+                prevista += "Descripcion: " + mgCursos.SelectedRows[0].Cells[2].Value.ToString() + "\r\n";
+                prevista += "Carrera: " + mgCursos.SelectedRows[0].Cells[3].Value.ToString() + "\r\n";
+                prevista += "Creditaje: " + mgCursos.SelectedRows[0].Cells[4].Value.ToString();
+                mlCursosPrevista.Text = prevista;
+            }
+        }
+
+        private void mgCursosDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (mgCursos.SelectedRows.Count > 0)
+            {
+                string codigo = mgCursos.SelectedRows[0].Cells[0].Value.ToString();
+                CursoCon con = new CursoCon();
+                Curso temp = con.ObtenerCurso(codigo);
+                AgregarEditarCurso obj = new AgregarEditarCurso("editar", temp);
+                obj.ShowInTaskbar = false;
+                obj.ShowDialog();
+                ActualizarDataGridViews();
+            }
+        }
+
+        private void mtCursosEliminarClick(object sender, EventArgs e)
+        {
+            if (mgCursos.SelectedRows.Count > 0)
+            {
+                DialogResult resultado = MetroMessageBox.Show(this, "¿Esta seguro de eliminar este curso? Se eliminara toda informacion de el", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (resultado == DialogResult.OK)
+                {
+                    string codigo = mgCursos.SelectedRows[0].Cells[0].Value.ToString();
+                    CursoCon con = new CursoCon();
+                    con.EliminarCurso(codigo);
+                    MetroMessageBox.Show(this, "Curso elimado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDataGridViews();
+                }
+            }
+        }
+
+        private void mtCursosAgregarClick(object sender, EventArgs e)
+        {
+            AgregarEditarCurso obj = new AgregarEditarCurso("agregar", null);
+            obj.ShowInTaskbar = false;
+            obj.ShowDialog();
+            ActualizarDataGridViews();
         }
 
         private void mgDocentesSelectionChanged(object sender, EventArgs e)
@@ -51,6 +220,7 @@ namespace SRM.Formularios
                 DocenteCon con = new DocenteCon();
                 Docente temp = con.ObtenerDocente(codigo);
                 AgregarEditarDocente obj = new AgregarEditarDocente("editar", temp);
+                obj.ShowInTaskbar = false;
                 obj.ShowDialog();
                 ActualizarDataGridViews();
             }
@@ -75,6 +245,7 @@ namespace SRM.Formularios
         private void mtDocentesAgregarClick(object sender, EventArgs e)
         {
             AgregarEditarDocente obj = new AgregarEditarDocente("agregar", null);
+            obj.ShowInTaskbar = false;
             obj.ShowDialog();
             ActualizarDataGridViews();
         }
@@ -100,6 +271,7 @@ namespace SRM.Formularios
                 AlumnoCon con = new AlumnoCon();
                 Alumno temp = con.ObtenerAlumno(codigo);
                 AgregarEditarAlumno obj = new AgregarEditarAlumno("editar", temp);
+                obj.ShowInTaskbar = false;
                 obj.ShowDialog();
                 ActualizarDataGridViews();
             }
@@ -124,6 +296,7 @@ namespace SRM.Formularios
         private void mtAlumnosAgregarClick(object sender, EventArgs e)
         {
             AgregarEditarAlumno obj = new AgregarEditarAlumno("agregar", null);
+            obj.ShowInTaskbar = false;
             obj.ShowDialog();
             ActualizarDataGridViews();
         }

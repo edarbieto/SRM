@@ -70,7 +70,7 @@ namespace SRM.Formularios
             string log = "";
             if (mtNombre.Text == "") log += "Falta indicar el nombre\r\n";
             if (mtApellido.Text == "") log += "Falta indicar el apellido\r\n";
-            if (mtDescripcion.Text == "") log += "Falta indicar la Descripcion\r\n";
+            if (mtDescripcion.Text == "") log += "Falta indicar la descripcion\r\n";
             if (mtDireccion.Text == "") log += "Falta indicar la direccion\r\n";
             if (mtNombre.Text.Length > 30) log += "El nombre no puede tener más de 30 carateres\r\n";
             if (mtApellido.Text.Length > 30) log += "El apellido no puede tener más de 30 carateres\r\n";
@@ -81,7 +81,7 @@ namespace SRM.Formularios
                 if (!int.TryParse(mtDni.Text, out int temp)) log += "El dni debe ser un numero\r\n";
             }
             if (mtDescripcion.Text.Length > 200) log += "La descripcion no puede tener más de 200 carateres\r\n";
-            if (mtDireccion.Text.Length > 50) log += "La direccion no puede tener más de 50 carateres\r\n";
+            if (mtDireccion.Text.Length > 50) log += "La direccion no puede tener más de 50 carateres";
             if (log != "")
             {
                 MetroMessageBox.Show(this, log, "Datos invalidos", MessageBoxButtons.OK, MessageBoxIcon.Error);

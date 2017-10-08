@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SRM.Entidades;
 using System.Data.SqlClient;
 using System.Data;
+using SRM.Entidades;
 
 namespace SRM.Conexiones
 {
