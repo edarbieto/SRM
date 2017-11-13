@@ -334,10 +334,12 @@
             this.mdtFechanacimiento.CustomFormat = "dd.MM.yyyy";
             this.mdtFechanacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.mdtFechanacimiento.Location = new System.Drawing.Point(173, 288);
+            this.mdtFechanacimiento.MaxDate = new System.DateTime(2017, 11, 13, 0, 0, 0, 0);
             this.mdtFechanacimiento.MinimumSize = new System.Drawing.Size(0, 29);
             this.mdtFechanacimiento.Name = "mdtFechanacimiento";
             this.mdtFechanacimiento.Size = new System.Drawing.Size(127, 29);
             this.mdtFechanacimiento.TabIndex = 19;
+            this.mdtFechanacimiento.Value = new System.DateTime(2017, 11, 13, 0, 0, 0, 0);
             // 
             // mtCodigo
             // 

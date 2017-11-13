@@ -42,6 +42,10 @@ namespace SRM.Formularios
                 mcContrato.Text = obj.Contrato;
             }
             mtAccion.Click += mtAccionClick;
+            mtNombre.KeyPress += mtNombreApellido_KeyPress;
+            mtApellido.KeyPress += mtNombreApellido_KeyPress;
+            mdtFechanacimiento.MaxDate = DateTime.Today;
+
         }
 
         private void mtAccionClick(object sender, EventArgs e)
@@ -79,6 +83,7 @@ namespace SRM.Formularios
             {
                 if (mtDni.Text.Length != 8) log += "El dni debe tener 8 caracteres exactamente\r\n";
                 if (!int.TryParse(mtDni.Text, out int temp)) log += "El dni debe ser un numero\r\n";
+                if (mtDni.Text != "00000000") log += "El dni no puede ser 00000000\r\n";
             }
             if (mtDescripcion.Text.Length > 200) log += "La descripcion no puede tener más de 200 carateres\r\n";
             if (mtDireccion.Text.Length > 50) log += "La direccion no puede tener más de 50 carateres";
@@ -88,6 +93,12 @@ namespace SRM.Formularios
                 return false;
             }
             return true;
+        }
+
+        private void mtNombreApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar)) e.Handled = true;
+            if (char.IsWhiteSpace(e.KeyChar) || char.IsControl(e.KeyChar)) e.Handled = false;
         }
     }
 }

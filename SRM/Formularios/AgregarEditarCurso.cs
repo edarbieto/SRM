@@ -68,7 +68,7 @@ namespace SRM.Formularios
             if (mtNombre.Text == "") log += "Falta indicar el nombre\r\n";
             if (mtDescripcion.Text == "") log += "Falta indicar la descripcion\r\n";
             if (mtCreditaje.Text == "") log += "Falta indicar el creditaje\r\n";
-            if (con.ExisteCodigo(mtCodigo.Text)) log += "Este codigo ya existe\r\n";
+            if (mtCodigo.Text != antiguoCodigo && con.ExisteCodigo(mtCodigo.Text)) log += "Este codigo ya existe\r\n";
             else if (mtCodigo.Text.Length != 5 || !reg.IsMatch(mtCodigo.Text)) log += "El formato del codigo es AA### (dos letras mayusculas y tres digitos)\r\n";
             if (mtNombre.Text.Length > 30) log += "El nombre no puede tener más de 30 carateres\r\n";
             if (mtDescripcion.Text.Length > 200) log += "La descripcion no puede tener más de 200 carateres\r\n";

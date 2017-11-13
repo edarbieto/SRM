@@ -22,19 +22,26 @@ namespace SRM.Formularios
 
         private void mtIngresarClick(object sender, EventArgs e)
         {
-            UsuarioCon con = new UsuarioCon();
-            string[] data = con.Ingresar(mtUsuario.Text, mtPassword.Text);
-            if (data[0] == "OK")
+            if (mtUsuario.Text != "" && mtUsuario.Text != "")
             {
-                Hide();
-                ShowInTaskbar = false;
-                Inicio obj = new Inicio(data[1], data[2]);
-                obj.FormClosed += (s, args) => Close();
-                obj.ShowDialog();
+                UsuarioCon con = new UsuarioCon();
+                string[] data = con.Ingresar(mtUsuario.Text, mtPassword.Text);
+                if (data[0] == "OK")
+                {
+                    Hide();
+                    ShowInTaskbar = false;
+                    Inicio obj = new Inicio(data[1], data[2]);
+                    obj.FormClosed += (s, args) => Close();
+                    obj.ShowDialog();
+                }
+                else if (data[0] == "NO")
+                {
+                    MetroMessageBox.Show(this, "El usuario y contraseña no coinciden", "Credenciales invalidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (data[0] == "NO")
+            else
             {
-                MetroMessageBox.Show(this, "El usuario y contraseña no coinciden", "Credenciales invalidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, "Por favor rellenar todos los campos", "Usuario o contraseña faltantes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
